@@ -26,7 +26,7 @@
 
         h1 {
             color: #18191bdd;
-            width: 96%;
+            width: 93.6%;
         }
 
         .card {
@@ -53,7 +53,7 @@
             margin: 20px 0;
             font-size: 24px;
             font-weight: bold;
-            width: 96%;
+            width: 93.6%;
         }
 
         .header {
@@ -61,7 +61,7 @@
             margin: -15px 0 30px;
             font-size: 14px;
             color: #6c757d;
-            width: 96%;
+            width: 93.6%;
         }
 
         .header a {
@@ -92,17 +92,15 @@
         }
 
         .operand {
-            margin-left: 15px;
-            width: 90%;
+            width: 93.6%;
         }
 
         .result {
-            margin-left: 15px;
-            width: 90%;
+            width: 93.6%;
         }
 
         button {
-            width: 96%;
+            width: 93.6%;
         }
 
         @media (max-width: 576px) {
@@ -114,16 +112,8 @@
                 font-size: 25px;
             }
 
-            .operand {
-                width: 80%;
-            }
-
-            .result {
-                width: 80%;
-            }
-
-            button {
-                width: 91.5%;
+            .operand, .result, button, h1, .header, .line-separator {
+                width: 85.5%;
             }
         }
     </style>
@@ -153,7 +143,9 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" id="add-operand-button" class="btn btn-primary">Add Operand</button>
+                <div class="row">
+                    <button type="button" id="add-operand-button" class="btn btn-primary">Add Operand</button>
+                </div>
                 <div class="line-separator">+</div>
                 <div class="row mb-2">
                     <div class="result">
@@ -161,7 +153,9 @@
                             pattern="[a-zA-Z]*" oninput="this.value = this.value.toUpperCase()">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Solve</button>
+                <div class="row">
+                    <button type="submit" class="btn btn-success">Solve</button>
+                </div>
             </form>
         </div>
         <div id="result-content" class="mt-3"></div>
