@@ -98,27 +98,27 @@ class Cryptarithmetic {
         arrchr.sort();
     
         strRet += `<div class="card-solve">`;
-        strRet += `<p class="text-center mt-3 col-11">Terdapat <span class="text-success fw-bold">${this.sol.length} Solusi</span> dari Persoalan Cryptarithmetic ini, yaitu:</p>`;
+        strRet += `<p class="text-center mt-3">Terdapat <span class="text-success fw-bold">${this.sol.length} Solusi</span> dari Persoalan Cryptarithmetic ini, yaitu:</p>`;
     
         for (let solusi of this.sol) {
             var strSol = "";
             for (let i = 0; i < arrchr.length; i++) {
                 strSol += `${arrchr[i]}=${solusi[this.idxChar[arrchr[i]]]}${i != arrchr.length - 1 ? ', ' : ' '}`;
             }
-            strRet += `<p class="text-center mb-4 col-11">Solusi ke-${solusike}: ${strSol}</p>`;
+            strRet += `<p class="text-center mb-4">Solusi ke-${solusike}: ${strSol}</p>`;
             
             for (let opr of this.operand) {
-                strRet += `<p class="mb-1 text-center col-11">`;
+                strRet += `<p class="mb-1 text-center">`;
                 for (let chrOp of opr) {
                     strRet += `${solusi[this.idxChar[chrOp]]}`;
                 }
                 strRet += `</p>`;
             }
             
-            strRet += `<p class="text-center mb-2 col-11">`;
+            strRet += `<p class="text-center mb-2">`;
             strRet += `-`.repeat(9) + `+</p>`;
             
-            strRet += `<p class="text-center col-11">`;
+            strRet += `<p class="text-center">`;
             for (let chrRes of this.result) {
                 strRet += `${solusi[this.idxChar[chrRes]]}`;
             }
@@ -172,7 +172,7 @@ function createOperandItem() {
     operandInput.addEventListener('change', onChangeHandler);
 
     const operandCol = document.createElement('div');
-    operandCol.classList.add('col-11');
+    operandCol.classList.add('operand');
     operandCol.append(operandInput);
 
     const deleteIcon = document.createElement('i');
@@ -188,7 +188,6 @@ function createOperandItem() {
 
 
     const deleteCol = document.createElement('div');
-    deleteCol.classList.add('col-1');
     deleteCol.append(deleteButton);
 
     const rowOperand = document.createElement('div');
@@ -285,23 +284,20 @@ function onSubmitHandler(event) {
     const cryptarithmetic = new Cryptarithmetic(input);
     var output = cryptarithmetic.solve();
     document.getElementById('result-content').innerHTML = output;
-    const eventName = "SUBMIT_FORM";
     const value = JSON.stringify({
         'operand': input.operand,
         'result': input.result,
         'idxChar': cryptarithmetic.idxChar,
         'solution': cryptarithmetic.sol
     });
-    trackEvent(eventName, value);
 }
 
 function onChangeHandler(event) {
-    const eventName = "CHANGE_FORM";
     const value = JSON.stringify({
         'id': event.target.id,
         'value': event.target.value
     });
-    trackEvent(eventName, value);
+    trackEvent(value);
 }
 
 document.getElementById("add-operand-button").addEventListener("click", createOperandItem);
