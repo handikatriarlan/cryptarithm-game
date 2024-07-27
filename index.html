@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptarithm Game</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            color: #343a40;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 35px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #343a40;
+            font-weight: 600;
+        }
+
+        .card {
+            padding: 50px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-solve {
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-danger i {
+            pointer-events: none;
+        }
+
+        .line-separator {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header {
+            text-align: center;
+            margin: -20px 0 30px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .header a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            color: #2479d4;
+        }
+
+        .btn-delete {
+            font-size: 16px;
+            color: #dc3545;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .btn-delete:hover {
+            color: #c82333;
+        }
+
+        .row {
+            align-items: center;
+        }
+
+        p {
+            font-weight: 600;
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="text-center mb-4 col-11">Cryptarithm Game</h1>
+            <div class="header col-11" id="header">
+                Created by: <a href="https://github.com/handikatriarlan" target="_blank">@handikatriarlan</a>
+            </div>
+            <form id="input-form" class="mb-4">
+                <div id="operands">
+                    <div class="row mb-2" id="row-operand-1">
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="operand-1" name="operand-1"
+                                placeholder="Operand 1" required pattern="[a-zA-Z]*"
+                                oninput="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                    <div class="row mb-2" id="row-operand-2">
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="operand-2" name="operand-2"
+                                placeholder="Operand 2" required pattern="[a-zA-Z]*"
+                                oninput="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="add-operand-button" class="btn btn-primary col-11">Add Operand</button>
+                <div class="line-separator col-11">+</div>
+                <div class="row mb-2">
+                    <div class="col-11">
+                        <input type="text" class="form-control" id="result" name="result" placeholder="Result" required
+                            pattern="[a-zA-Z]*" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success col-11">Solve</button>
+            </form>
+        </div>
+        <div id="result-content" class="mt-3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
