@@ -277,8 +277,6 @@ function getInput() {
         'idxChar': idxChar,
         'maxLen': maxLen
     };
-
-
 }
 
 function onSubmitHandler(event) {
@@ -294,7 +292,6 @@ function onSubmitHandler(event) {
         'idxChar': cryptarithmetic.idxChar,
         'solution': cryptarithmetic.sol
     });
-    updateSession();
     trackEvent(eventName, value);
 }
 
@@ -304,7 +301,6 @@ function onChangeHandler(event) {
         'id': event.target.id,
         'value': event.target.value
     });
-    updateSession();
     trackEvent(eventName, value);
 }
 
